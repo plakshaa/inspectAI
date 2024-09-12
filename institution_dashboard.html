@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation Bar</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      padding-top: 100px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.4);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 60%;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* Upload options */
+    .upload-options {
+      display: block;
+      margin-bottom: 20px;
+    }
+    
+
+    .upload-option-btn {
+      margin: 5px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .upload-option-btn:hover {
+      background-color: #0056b3;
+    }
+
+    /* File upload box */
+    .upload-container {
+      display: none;
+    }
+
+    /* New pop-up modal styles */
+    .secondary-modal {
+      display: none;
+      position: fixed;
+      z-index: 2;
+      padding-top: 100px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.4);
+    }
+
+    .secondary-modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 50%;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <nav class="navbar">
+    <div class="navbar-left">
+      <span class="ranking">#1</span>
+    </div>
+
+    <div class="navbar-right">
+      <a href="#" class="icon notification" title="Notifications">
+        <i class="fas fa-bell"></i>
+      </a>
+      <a href="#" class="icon support" title="Help & Support">
+        <i class="fas fa-question-circle"></i>
+      </a>
+      <span class="user-id">ID: 3136</span>
+    </div>
+  </nav>
+
+  <div class="grid-container">
+    <!-- Infrastructure -->
+    <div class="grid-item">
+        <img src="./admin.jpg" alt="">
+        <div class="content">
+        <h2>Infrastructure</h2>
+        <button onclick="openModal('infrastructureModal')">Upload Document</button>
+        </div>
+    </div>
+
+    <!-- Faculty -->
+    <div class="grid-item">
+        <img src="./admin.jpg" alt="">
+        <div class="content">
+        <h2>Faculty</h2>
+        
+        <button onclick="openModal('facultyModal')">Upload Document</button>
+        </div>
+    </div>
+
+    <!-- Student -->
+    <div class="grid-item">
+        <img src="./admin.jpg" alt="">
+        <div class="content">
+        <h2>Student</h2>
+        
+        <button onclick="openModal('studentModal')">Upload Document</button>
+        </div>
+    </div>
+
+    <!-- Overall -->
+    <div class="grid-item" onclick="openModal('overallModal')">
+        <img src="./admin.jpg" alt="">
+        <div class="content">
+        <h2>Overall</h2>
+        
+        </div>
+    </div>
+    <div class="grid-item" style="display: block;" >
+        <h2 style="margin-bottom: 1rem;">Suggestions</h2>
+
+        <p style="font-size: 1rem;">p1</p>
+        <p style="font-size: 1rem;">p2</p>
+        <p style="font-size: 1rem;">p3</p>
+        
+    </div>
+    <div class="grid-item" style="display: block;" >
+        <h2 style="margin-bottom: 1rem;">Dissatisfactories</h2>
+
+        <p style="font-size: 1rem;">p1</p>
+        <p style="font-size: 1rem;">p2</p>
+        <p style="font-size: 1rem;">p3</p>
+    </div>
+  </div>
+
+  <button style="display: block; width: 100%; margin-top: 1rem; padding: 1rem; font-size: 1.1rem; border-radius: 10px; background-color: #007bff; color:#fff; cursor: pointer; border: 1px solid white;" >
+    Download Report
+  </button>
+  <!-- Modal for Infrastructure -->
+  <div id="infrastructureModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('infrastructureModal')">&times;</span>
+      <h2>Upload Options for Infrastructure</h2>
+      <div class="upload-options">
+        <button class="upload-option-btn">Student Assessment Report
+          <input type="file" name="" id="">
+        </button>
+        <button class="upload-option-btn">Faculty Performance
+          <input type="file" name="" id="">
+        </button>
+        <button class="upload-option-btn">Student Attendance
+          <input type="file" name="" id="">
+        </button>
+        <button class="upload-option-btn">Overall Report
+          <input type="file" name="" id="">
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Faculty -->
+  <div id="facultyModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('facultyModal')">&times;</span>
+      <h2>Upload Options for Faculty</h2>
+      <div class="upload-options">
+        <button class="upload-option-btn" >Faculty Performance
+          <input type="file" name="" id="">
+        </button>
+        <button class="upload-option-btn" >Student Attendance
+          <input type="file" name="" id="">
+        </button>
+        <button class="upload-option-btn" >Overall Report
+          <input type="file" name="" id="">
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Student -->
+  <div id="studentModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('studentModal')">&times;</span>
+      <h2>Upload Options for Student</h2>
+      <div class="upload-options">
+        <button class="upload-option-btn" >Student Assessment Report
+          <input type="file" name="" id="">
+        </button>
+        
+        <button class="upload-option-btn" >Student Attendance
+          <input type="file" name="" id="">
+        </button>
+        <button class="upload-option-btn" >Overall Report
+          <input type="file" name="" id="">
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Overall -->
+  <div id="overallModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('overallModal')">&times;</span>
+      <h2>Upload Options for Overall</h2>
+      <div class="upload-options">
+        <button class="upload-option-btn">Faculty Assessment 
+          <div>Completed</div>
+        </button>
+
+        <button class="upload-option-btn">Student Assessment
+          <div>Completed</div>
+        </button>
+        <button class="upload-option-btn">Infrastructure Assessment
+          <div>Completed</div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Secondary Modals for Upload Sections -->
+  <div id="studentReportModal" class="secondary-modal">
+    <div class="secondary-modal-content">
+      <span class="close" onclick="closeModal('studentReportModal')">&times;</span>
+      <h2>Student Assessment Report Upload</h2>
+    </div>
+  </div>
+
+  <div id="facultyPerformanceModal" class="secondary-modal">
+    <div class="secondary-modal-content">
+      <span class="close" onclick="closeModal('facultyPerformanceModal')">&times;</span>
+      <h2>Faculty Performance Report Upload</h2>
+      <input type="file" name="fileUpload">
+      <button>Upload</button>
+    </div>
+  </div>
+
+  <div id="studentAttendanceModal" class="secondary-modal">
+    <div class="secondary-modal-content">
+      <span class="close" onclick="closeModal('studentAttendanceModal')">&times;</span>
+      <h2>Student Attendance Upload</h2>
+      <input type="file" name="fileUpload">
+      <button>Upload</button>
+    </div>
+  </div>
+
+  <div id="overallReportModal" class="secondary-modal">
+    <div class="secondary-modal-content">
+      <span class="close" onclick="closeModal('overallReportModal')">&times;</span>
+      <h2>Overall Report Upload</h2>
+      
+      <button>Upload</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // Function to open a specific modal
+  function openModal(modalId) {
+    document.getElementById(modalId).style.display = 'block';
+  }
+
+  // Function to close a specific modal
+  function closeModal(modalId) {
+    document.getElementById(modalId).style.display = 'none';
+  }
+
+  // Function to show the upload section based on selection
+  function showUploadSection(uploadType) {
+    closeAllSecondaryModals(); // Close any open modals before opening a new one
+    if (uploadType === 'studentReport') {
+      openModal('studentReportModal');
+    } else if (uploadType === 'facultyPerformance') {
+      openModal('facultyPerformanceModal');
+    } else if (uploadType === 'studentAttendance') {
+      openModal('studentAttendanceModal');
+    } else if (uploadType === 'overallReport') {
+      openModal('overallReportModal');
+    }
+  }
+
+  // Function to close all secondary modals
+  function closeAllSecondaryModals() {
+    closeModal('studentReportModal');
+    closeModal('facultyPerformanceModal');
+    closeModal('studentAttendanceModal');
+    closeModal('overallReportModal');
+  }
+
+  // Close modal when clicking outside
+  window.onclick = function(event) {
+    if (event.target.classList.contains('modal') || event.target.classList.contains('secondary-modal')) {
+      event.target.style.display = 'none';
+    }
+  }
+</script>
+
+</body>
+</html>

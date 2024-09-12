@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AICTE Inspection Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(90deg, rgba(13,48,106,1) 0%, rgba(30,75,179,1) 50%, rgba(0,128,255,1) 100%);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            max-width: 1200px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .left-section {
+            flex: 1;
+            padding: 30px;
+            position: relative;
+        }
+
+        .left-section h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #e8f4fc;
+        }
+
+        .left-section p {
+            font-size: 1.2rem;
+            color: #e8f4fc;
+        }
+
+        .left-section img {
+            width: 80%;
+            margin-top: 20px;
+            display: block;
+            opacity: 0.9;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .right-section {
+            flex: 1;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+        }
+
+        .right-section .login-box {
+            max-width: 400px;
+            margin: auto;
+        }
+
+        .right-section h2 {
+            text-align: center;
+            color: #e8f4fc;
+        }
+
+        .right-section label {
+            color: #e8f4fc;
+        }
+
+        .right-section input[type="text"],
+        .right-section input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .right-section button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background-color: #1e4bb3;
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .right-section button:hover {
+            background-color: #0d306a;
+        }
+
+        .login-options {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .login-options button {
+            flex: 1;
+            margin: 0 10px;
+            padding: 10px;
+            background-color: #0078d7;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-options button:hover {
+            background-color: #005fbf;
+        }
+
+        .extra-links {
+            text-align: center;
+        }
+
+        .extra-links a {
+            color: #00aaff;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .extra-links a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #e8f4fc;
+            padding: 5px 0;
+            font-size: 0.9rem;
+        }
+
+        .news {
+            color: #ffcc00;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="left-section">
+                <h2>Azadi Ka Amrit Mahotsav</h2>
+                <p>By Education, I mean an all-round drawing of the best in child and man in body, mind, and spirit.</p>
+                <p>- Mahatma Gandhi</p>
+                <img src="bg1.jpeg" alt="Globe Graphic" class="globe-image">
+            </div>
+            <div class="right-section">
+                <div class="login-box">
+                    <img style = "display: block;margin: auto;" src="aicte.png" alt="AICTE Logo" class="aicte-logo">
+                    <h2>Sign In</h2>
+                    <!-- Buttons to choose login type -->
+                    <div class="login-options">
+                        <button class="login-btn" onclick="window.location.href='admin-login.html'">Login as Admin</button>
+                        <button class="login-btn" onclick="window.location.href='institute-login.html'">Login as Institute</button>
+                    </div>
+                    <div class="extra-links">
+                        <a href="#">New Institute</a> | 
+                        <a href="#">Forgot Password?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <span class="news">news</span> Kindly submit your Approval Process Application as soon as possible to avoid last-minute rush.
+    </div>
+</body>
+</html>
